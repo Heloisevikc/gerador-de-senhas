@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas Multifuncional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Gerador de Senhas</h1>
+        
+        <div class="password-display">
+            <input type="text" id="passwordOutput" readonly placeholder="Clique em Gerar Senha">
+            <button id="copyBtn" class="btn-copy">📋</button>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="lengthSlider">Comprimento: <span id="lengthValue">16</span></label>
+                <input type="range" id="lengthSlider" min="4" max="64" value="16">
+            </div>
+
+            <div class="control-group">
+                <label>Incluir:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="includeUppercase" checked> Maiúsculas (A-Z)</label>
+                    <label><input type="checkbox" id="includeLowercase" checked> Minúsculas (a-z)</label>
+                    <label><input type="checkbox" id="includeNumbers" checked> Números (0-9)</label>
+                    <label><input type="checkbox" id="includeSymbols" checked> Símbolos (!@#$%)</label>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Nível de Segurança:</label>
+                <div class="security-level">
+                    <button class="sec-btn" data-level="low">Baixo</button>
+                    <button class="sec-btn active" data-level="medium">Médio</button>
+                    <button class="sec-btn" data-level="high">Alto</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Quantidade: <span id="quantityValue">1</span></label>
+                <input type="range" id="quantitySlider" min="1" max="20" value="1">
+            </div>
+
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="excludeSimilar"> Excluir caracteres similares (i, l, 1, O, 0)
+                </label>
+            </div>
+        </div>
+
+        <button id="generateBtn" class="btn-generate">🔄 Gerar Senha(s)</button>
+
+        <div id="passwordList" class="password-list"></div>
+
+        <div class="strength-indicator">
+            <div class="strength-bar" id="strengthBar"></div>
+            <span id="strengthText">Força: Média</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
